@@ -488,6 +488,17 @@ and punctuation in determining if the string is a palindrome.
     palindrome("abcdefg") === false
  */
 
+const isPalindrome = function (str) {
+  let arr = str.split("");
+  let reverse = arr.reverse();
+  let new_str = arr.join("");
+  console.log(new_str);
+  if (new_str === str) {
+    return str + " is a Palimdrome";
+  }
+};
+console.log(isPalindrome("abba"));
+
 /* 5) REVERSE INT
 Given an integer, return an integer that is the reverse
 ordering of numbers.
