@@ -489,12 +489,10 @@ and punctuation in determining if the string is a palindrome.
  */
 
 const isPalindrome = function (str) {
-  let arr = str.split("");
-  let reverse = arr.reverse();
+  let arr = str.split("").reverse();
   let new_str = arr.join("");
-  console.log(new_str);
   if (new_str === str) {
-    return str + " is a Palimdrome";
+    return str + " is a Palindrome";
   }
 };
 console.log(isPalindrome("abba"));
@@ -509,6 +507,26 @@ ordering of numbers.
     reverseInt(-15) === -51
     reverseInt(-90) === -9
  */
+
+const reverseInteger = function (n) {
+  if (n > -10 && n < 10) {
+    return n;
+  } else {
+    let new_n = n.toString();
+    let arr = [...new_n];
+    if (arr[0] == "-") {
+      let subarray = arr.slice(1, arr.length);
+      //console.log(subarray);
+      subarray.reverse();
+      new_n = arr[0] + subarray;
+    } else {
+      arr = [...new_n].reverse();
+      new_n = arr.join("");
+    }
+    return new_n;
+  }
+};
+console.log(reverseInteger(18));
 
 /* 6) STEPS
 Write a function that accepts a positive number N.
