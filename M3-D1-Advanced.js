@@ -182,29 +182,151 @@ Types of angles:
     btuse angle: An angle between 90 and 180 degrees.
     Straight angle: A 180 degree angle.
 
+*/
+
+//TODO check
+const findAngle = function (a) {
+  let angle = a;
+  console.log(angle);
+  let result;
+
+  switch (angle) {
+    case angle > 0 && angle < 90:
+      result = "Acute Angle";
+      console.log(result);
+      break;
+    case angle === 90:
+      result = "Right Angle";
+      break;
+    case angle > 90 && angle < 180:
+      result = "Obtuse Angle";
+      break;
+    case angle === 180:
+      result = "A 180 degree angle";
+      break;
+  }
+
+  return result;
+};
+
+console.log(findAngle(90));
+console.log(findAngle(45));
+
+/*
+
+
+
 13)
 
 Create a function to find the index of the greatest element of a given array of integers
+
+*/
+
+const findGreatestIndex = function (arr) {
+  let greatest = 0;
+  let greatest_index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > greatest) {
+      greatest = arr[i];
+      greatest_index = i;
+    }
+  }
+  return greatest_index;
+};
+
+console.log(findGreatestIndex([2, 6, 7, 19, 80]));
+/*
+
 
 14)
 
 Create a function to get the largest even number from an array of integers.
 
+*/
+
+const getLargestEvenInt = function (arr) {
+  let largest_even = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 != 0) {
+      continue;
+    }
+    if (arr[i] > largest_even) {
+      largest_even = arr[i];
+    }
+  }
+  if (largest_even !== 0) {
+    return largest_even;
+  } else {
+    return "no even numbers different from 0 were found";
+  }
+};
+console.log(getLargestEvenInt([1, 87, 128, 201]));
+
+/*
+
 15)
 
 Create a function to check two given numbers and return true if one of the number is 50 or if their sum is 50.
+
+*/
+
+/*
 
 16)
 
 Create a function to check from two given integers, whether one is positive and another one is negative.
 
+
+*/
+
+const checkPosOrNeg = function (x, y) {
+  console.log(-Math.abs(x + y));
+  if (Math.abs(x + y) > x + y && -Math.abs(x + y) !== x + y) {
+    return "x and y have a different sign";
+  } else {
+    return "x and y do NOT have a different sign";
+  }
+};
+console.log(checkPosOrNeg(-2, 3));
+
+/*
 17)
 
 Create a function to create new string with first 3 characters are in lower case and the others in upper case. If the string length is less than 3 convert all the characters in upper case. 
 
+*/
+
+const convertCharacters = function (str) {
+  let new_string;
+
+  if (str.length < 4) {
+    new_string = str.toUpperCase();
+  } else {
+    let first_part = str.substring(0, 3);
+    let second_part = str.substring(3, str.length);
+    new_string = first_part.toLowerCase() + second_part.toUpperCase();
+  }
+  return new_string;
+};
+console.log(convertCharacters("ecccezzziunalleee"));
+
+/*
+
 18)
 
 Create a function to calculate the sum of the two given integers, If the sum is in the range 50..80 return 65 other wise return 80.
+
+*/
+
+const sumRangeInt = function (x, y) {
+  let sum = x + y;
+  if (sum >= 50 && sum <= 80) {
+    return 65;
+  } else return 80;
+};
+
+console.log(sumRangeInt(0, 40));
+/*
 
 19)
 
@@ -222,7 +344,38 @@ this would be a "DiegoRiccardo".
 34 has four factors: 1, 2, 17, and 34.
 this would be "34".
 
+*/
+
+const factorNums = function (n) {
+  let strive_factor = "";
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      if (i === 3) {
+        strive_factor += "Diego";
+      } else if (i === 5) {
+        strive_factor += "Riccardo";
+      } else if (i === 7) {
+        strive_factor += "Stefano";
+      }
+    }
+  }
+  return strive_factor;
+};
+console.log(factorNums(3));
+
+/*
+
 20)
 Create a function that given a phrase returns its acronym, like British Broadcasting Corporation returns BBC
 
 */
+
+const acroMaker = function (str) {
+  let acronym = "";
+  let arr = str.split(" ");
+  for (let i = 0; i < arr.length; i++) {
+    acronym += arr[i].charAt(0);
+  }
+  return acronym.toUpperCase();
+};
+console.log(acroMaker("random access memory"));
