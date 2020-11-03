@@ -516,7 +516,6 @@ const reverseInteger = function (n) {
     let arr = [...new_n];
     if (arr[0] == "-") {
       let subarray = arr.slice(1, arr.length);
-      //console.log(subarray);
       subarray.reverse();
       new_n = arr[0] + subarray;
     } else {
@@ -547,6 +546,15 @@ step has spaces on the right hand side!
         '### '
         '####' */
 
+const steps = function (n) {
+  let step = "# ";
+  for (let i = 0; i < n; i++) {
+    console.log(step);
+    step += "# ";
+  }
+};
+console.log(steps(7));
+
 /* 7) REVERSE STRING
 Given a string, return a new string with the reversed
 order of characters
@@ -555,6 +563,23 @@ order of characters
     reverse('hello') === 'olleh'
     reverse('Greetings!') === '!sgniteerG'
  */
+
+const reverse_string = function (str) {
+  let arr = str.split("");
+  let temp = "";
+  let i = 0;
+  let j = arr.length - 1;
+  while (i < j) {
+    temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+  let reversed = arr.join("");
+  return reversed;
+};
+console.log(reverse_string("DPCM"));
 
 /* 8) CHUNK
 Given an array and chunk size, divide the array into many subarrays
@@ -567,6 +592,21 @@ where each subarray is of length size
     chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 */
 
+const chunk_array = function (arr, s) {
+  let subarrays = [];
+  let bottom_index;
+  let top_index;
+  let subarray = [];
+  for (let i = 0; i < arr.length; i += s) {
+    bottom_index = i;
+    top_index = bottom_index + s;
+    subarray = arr.slice(bottom_index, top_index);
+    subarrays.push(subarray);
+  }
+  return subarrays;
+};
+
+console.log(chunk_array([1, 2, 3, 4, 5, 6, 7], 2));
 /* 9) PYRAMID
 Write a function that accepts a positive number N.
 The function should console log a pyramid shape
@@ -600,3 +640,7 @@ and returns a NxN spiral matrix.
         [11, 16, 15, 6],
         [10,  9,  8, 7]]
 */
+
+const spyral_matrix = function (n) {
+  let matrix = [];
+};
