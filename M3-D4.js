@@ -105,6 +105,7 @@ window.onload = function () {
   let form = document.querySelector(".form-inline");
   let filtered_card;
   form.addEventListener("submit", function (event) {
+    event.preventDefault();
     //console.log(event.target[0].value);
     let entry = event.target[0].value;
     if (entry.length > 3) {
